@@ -1,23 +1,30 @@
 /* ============================================================
-   MRD AMERICAN — Agency-tier Dark Streetwear
+   MRD AMERICAN — Light Streetwear (sh-aka palette)
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400;500&display=swap');
 
 /* ── Variables ─────────────────────────────────────────────── */
 :root {
-  --black:      #080808;
-  --dark:       #0f0f0f;
-  --mid:        #161616;
-  --surface:    #1e1e1e;
-  --border:     rgba(255,255,255,0.07);
-  --border-g:   rgba(200,169,110,0.22);
-  --gold:       #c8a96e;
-  --gold-dim:   #9a7d4e;
-  --gold-glow:  rgba(200,169,110,0.1);
-  --text:       #ece8e1;
-  --muted:      #545454;
-  --muted2:     #888;
+  /* Superficies — paleta clara */
+  --black:      #f7f5f2;   /* fondo de página (crema cálido)    */
+  --dark:       #eeecea;   /* fondo de cards / secciones alt    */
+  --mid:        #e5e3e0;   /* superficies, skeletons            */
+  --surface:    #d9d7d4;   /* bordes visibles, skeleton shimmer */
+
+  /* Bordes */
+  --border:     rgba(0,0,0,0.09);
+  --border-g:   rgba(0,0,0,0.22);
+
+  /* Acento — negro en lugar de dorado */
+  --gold:       #111111;
+  --gold-dim:   #555555;
+  --gold-glow:  rgba(0,0,0,0.05);
+
+  /* Tipografía */
+  --text:       #141414;
+  --muted:      #b0adaa;
+  --muted2:     #777777;
   --white:      #ffffff;
 
   --f-display: 'Bebas Neue', sans-serif;
@@ -45,7 +52,7 @@ img  { display: block; width: 100%; height: 100%; object-fit: cover; }
 button { cursor: pointer; border: none; background: none; font-family: inherit; color: inherit; }
 ::-webkit-scrollbar { width: 3px; height: 3px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--gold-dim); }
+::-webkit-scrollbar-thumb { background: #aaaaaa; }
 
 /* ── Scroll Reveal ─────────────────────────────────────────── */
 [data-reveal] {
@@ -65,7 +72,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transition: background 0.4s var(--out), border-color 0.4s var(--out);
 }
 #main-nav.scrolled {
-  background: rgba(8,8,8,0.94);
+  background: rgba(247,245,242,0.96);
   border-bottom-color: var(--border);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
@@ -85,10 +92,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-family: var(--f-display);
   font-size: 22px;
   letter-spacing: 5px;
-  color: var(--white);
+  color: #ffffff;          /* blanco sobre hero oscuro */
   flex-shrink: 0;
+  transition: color 0.3s;
 }
-.nav-logo span { color: var(--gold); }
+.nav-logo span { color: #c8a96e; } /* dorado visible en ambos fondos */
+#main-nav.scrolled .nav-logo { color: var(--text); }
+#main-nav.scrolled .nav-logo span { color: var(--gold); }
 
 /* Links */
 .nav-links {
@@ -106,12 +116,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-size: 11px;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: var(--muted2);
+  color: rgba(255,255,255,0.6);  /* claro sobre hero oscuro */
   padding: 0 22px;
   height: var(--nav-h);
   transition: color 0.2s;
 }
-.nav-links > li > a:hover { color: var(--white); }
+.nav-links > li > a:hover { color: #ffffff; }
+#main-nav.scrolled .nav-links > li > a { color: var(--muted2); }
+#main-nav.scrolled .nav-links > li > a:hover { color: var(--text); }
 .nav-arrow { font-size: 8px; transition: transform 0.22s var(--spring); display: inline-block; }
 .has-dropdown:hover .nav-arrow { transform: rotate(180deg); }
 
@@ -160,9 +172,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   letter-spacing: 2.5px;
   text-transform: uppercase;
   padding: 9px 18px;
-  border: 1px solid var(--border-g);
-  color: var(--gold);
-  transition: background 0.2s, color 0.2s;
+  border: 1px solid rgba(255,255,255,0.35);  /* visible sobre hero oscuro */
+  color: rgba(255,255,255,0.85);
+  transition: background 0.2s, color 0.2s, border-color 0.3s;
 }
 .btn-nav-store .btn-icon {
   display: inline-flex;
@@ -170,13 +182,21 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   justify-content: center;
   width: 20px;
   height: 20px;
-  background: var(--gold-glow);
+  background: rgba(255,255,255,0.12);
   border-radius: 50%;
   font-size: 10px;
   transition: transform 0.2s var(--spring);
 }
-.btn-nav-store:hover { background: var(--gold); color: var(--black); }
-.btn-nav-store:hover .btn-icon { transform: translate(1px,-1px); background: rgba(0,0,0,0.15); }
+.btn-nav-store:hover { background: #ffffff; color: #111111; border-color: #ffffff; }
+.btn-nav-store:hover .btn-icon { transform: translate(1px,-1px); background: rgba(0,0,0,0.1); }
+
+/* Nav scrolled — versión oscura del botón */
+#main-nav.scrolled .btn-nav-store {
+  border-color: var(--border-g);
+  color: var(--gold);
+}
+#main-nav.scrolled .btn-nav-store .btn-icon { background: var(--gold-glow); }
+#main-nav.scrolled .btn-nav-store:hover { background: var(--gold); color: var(--white); }
 
 /* Hamburger */
 #menu-toggle {
@@ -191,9 +211,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 #menu-toggle span {
   display: block;
   height: 1.5px;
-  background: var(--text);
-  transition: transform 0.35s var(--spring), opacity 0.3s;
+  background: #ffffff;   /* blanco sobre hero; JS añade .scrolled al nav */
+  transition: transform 0.35s var(--spring), opacity 0.3s, background 0.3s;
 }
+#main-nav.scrolled #menu-toggle span { background: var(--text); }
 #menu-toggle.open span:nth-child(1) { transform: translateY(3.75px) rotate(45deg); }
 #menu-toggle.open span:nth-child(2) { transform: translateY(-3.75px) rotate(-45deg); }
 
@@ -202,7 +223,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   position: fixed;
   inset: 0;
   z-index: 190;
-  background: rgba(8,8,8,0.97);
+  background: rgba(247,245,242,0.98);
   backdrop-filter: blur(28px);
   -webkit-backdrop-filter: blur(28px);
   display: flex;
@@ -226,7 +247,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-family: var(--f-display);
   font-size: 52px;
   letter-spacing: 3px;
-  color: var(--text);
+  color: var(--text);      /* oscuro sobre fondo claro */
   padding: 2px 0;
   opacity: 0;
   transform: translateY(20px);
@@ -251,8 +272,22 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 #mobile-menu.open .mobile-tagline { opacity:1; transform:translateY(0); }
 
-/* ── Hero ──────────────────────────────────────────────────── */
+/* ── Hero — contexto oscuro (override local de variables) ──── */
 .hero {
+  /* Restaura paleta oscura solo dentro del carousel */
+  --black:      #080808;
+  --dark:       #111111;
+  --mid:        #1a1a1a;
+  --surface:    #242424;
+  --border:     rgba(255,255,255,0.07);
+  --border-g:   rgba(200,169,110,0.22);
+  --gold:       #c8a96e;
+  --gold-dim:   #9a7d4e;
+  --gold-glow:  rgba(200,169,110,0.12);
+  --text:       #ece8e1;
+  --muted:      #545454;
+  --muted2:     #888888;
+
   position: relative;
   height: 100svh;
   min-height: 600px;
@@ -525,7 +560,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 /* ── Ticker ────────────────────────────────────────────────── */
-.ticker { background: var(--gold); overflow: hidden; padding: 10px 0; white-space: nowrap; }
+.ticker { background: #111111; overflow: hidden; padding: 10px 0; white-space: nowrap; }
 .ticker-track {
   display: inline-flex;
   animation: ticker 22s linear infinite;
@@ -534,7 +569,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-family: var(--f-display);
   font-size: 13px;
   letter-spacing: 3px;
-  color: var(--black);
+  color: #ffffff;
   padding: 0 20px;
 }
 @keyframes ticker {
@@ -654,7 +689,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(200,169,110,0.08);
+  background: rgba(0,0,0,0.25);
   opacity: 0;
   transition: opacity 0.3s var(--out);
 }
@@ -665,9 +700,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-size: 11px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--white);
+  color: #ffffff;
   padding: 10px 22px;
-  border: 1px solid rgba(255,255,255,0.28);
+  border: 1px solid rgba(255,255,255,0.5);
 }
 
 .bento-info {
@@ -684,7 +719,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-size: 13px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--text);
+  color: #ffffff;        /* siempre blanco — va sobre gradiente oscuro */
   margin-bottom: 4px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -694,7 +729,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-family: var(--f-sub);
   font-weight: 700;
   font-size: 17px;
-  color: var(--gold);
+  color: #c8a96e;        /* dorado siempre legible sobre oscuro */
   letter-spacing: 1px;
 }
 .bento-item:nth-child(1) .bento-name  { font-size: 17px; }
@@ -777,7 +812,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .pc-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(200,169,110,0.09);
+  background: rgba(0,0,0,0.22);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -791,9 +826,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-size: 10px;
   letter-spacing: 3.5px;
   text-transform: uppercase;
-  color: var(--white);
+  color: #ffffff;
   padding: 8px 18px;
-  border: 1px solid rgba(255,255,255,0.22);
+  border: 1px solid rgba(255,255,255,0.5);
 }
 
 .pc-body { padding: 13px 15px 17px; }
@@ -981,7 +1016,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .about-img-col {
-  background: var(--dark);
+  background: #111111;   /* dark contrast against light page */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1013,7 +1048,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .about-text-col {
-  background: var(--mid);
+  background: var(--dark);   /* crema cálido, del :root claro */
   padding: 100px var(--px);
   display: flex;
   flex-direction: column;
@@ -1038,8 +1073,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
 /* ── Footer ────────────────────────────────────────────────── */
 .site-footer {
-  background: var(--dark);
-  border-top: 1px solid var(--border);
+  background: #111111;
+  border-top: none;
 }
 .footer-inner {
   display: flex;
@@ -1054,16 +1089,16 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-family: var(--f-display);
   font-size: 26px;
   letter-spacing: 5px;
-  color: var(--white);
+  color: #ffffff;
   margin-bottom: 8px;
 }
-.footer-logo span { color: var(--gold); }
+.footer-logo span { color: #c8a96e; }
 .footer-tagline {
   font-family: var(--f-sub);
   font-size: 10px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--muted);
+  color: #555555;
   margin-bottom: 28px;
 }
 .footer-nav { display: flex; gap: 56px; }
@@ -1073,7 +1108,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-size: 9px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: #c8a96e;
   margin-bottom: 18px;
 }
 .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
@@ -1081,13 +1116,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-family: var(--f-sub);
   font-size: 13px;
   letter-spacing: 1px;
-  color: var(--muted2);
+  color: #666666;
   transition: color 0.2s;
 }
-.footer-col ul a:hover { color: var(--gold); }
+.footer-col ul a:hover { color: #ffffff; }
 
 .footer-bottom {
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(255,255,255,0.07);
   padding: 22px var(--px);
   display: flex;
   justify-content: space-between;
@@ -1101,10 +1136,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-family: var(--f-sub);
   font-size: 10px;
   letter-spacing: 1.5px;
-  color: var(--muted);
+  color: #444444;
 }
-.footer-powered a { color: var(--gold-dim); transition: color 0.2s; }
-.footer-powered a:hover { color: var(--gold); }
+.footer-powered a { color: #c8a96e; transition: color 0.2s; }
+.footer-powered a:hover { color: #ffffff; }
 
 /* ── Responsive ────────────────────────────────────────────── */
 @media (max-width: 1280px) {
