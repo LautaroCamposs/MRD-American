@@ -1,8 +1,7 @@
 const CONFIG = {
-  STORE_ID: '7637571',
-  ACCESS_TOKEN: '663fa8e91c2fa8b109c1fd864f5aaa76161ccfc5',
-  USER_AGENT: 'MRD American (lautarocampos02@gmail.com)',
-  BASE_URL: 'https://api.tiendanube.com/v1',
+  // Las credenciales viven en el servidor (variables de entorno).
+  // El cliente solo necesita la ruta del proxy.
+  BASE_URL: '/api',
   PRODUCTS_PER_PAGE: 12,
   FEATURED_COUNT: 3,
   STRIP_COUNT: 8,
