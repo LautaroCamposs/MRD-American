@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MRD American — Snow Clothing, Hoodies, Tees & Pants. Streetwear americano desde Argentina." />
+  <title>MRD American</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════
+       NAV
+  ════════════════════════════════════════════════ -->
+  <nav id="main-nav">
+    <div class="nav-inner">
+
+      <a class="nav-logo" href="#">MRD<span>.</span>AMERICAN</a>
+
+      <ul class="nav-links">
+        <li class="has-dropdown">
+          <a href="#catalogo">
+            Catálogo <span class="nav-arrow">↓</span>
+          </a>
+          <div class="nav-dropdown">
+            <a href="#" data-filter-cat="snow-clothing">Snow Clothing</a>
+            <a href="#" data-filter-cat="hoodies">Hoodies</a>
+            <a href="#" data-filter-cat="tees">Tees</a>
+            <a href="#" data-filter-cat="pants">Pants</a>
+          </div>
+        </li>
+        <li><a href="#drops">Drops</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a class="btn-nav-store"
+           href="https://www.tiendanube.com/tienda/7637571"
+           target="_blank" rel="noopener">
+          Tienda oficial
+          <span class="btn-icon">↗</span>
+        </a>
+        <button id="menu-toggle" aria-label="Abrir menú">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════
+       MOBILE MENU
+  ════════════════════════════════════════════════ -->
+  <div id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <nav class="mobile-nav">
+        <a class="mobile-link" data-idx="0" href="#catalogo">Catálogo</a>
+        <a class="mobile-link" data-idx="1" href="#drops">Drops</a>
+        <a class="mobile-link" data-idx="2" href="#nosotros">Nosotros</a>
+        <a class="mobile-link" data-idx="3"
+           href="https://www.tiendanube.com/tienda/7637571"
+           target="_blank" rel="noopener">Tienda</a>
+      </nav>
+      <div class="mobile-footer">
+        <p class="mobile-tagline">Snow · Streetwear · Argentina</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       HERO CAROUSEL
+  ════════════════════════════════════════════════ -->
+  <section class="hero">
+    <div id="hero-track" class="hero-track">
+
+      <!-- Slide 1 — Snow -->
+      <div class="hero-slide" data-slide="0">
+        <div class="slide-bg slide-bg--1">
+          <!-- Reemplazá con tu imagen: <img src="assets/hero-snow.jpg" alt="Snow Clothing" /> -->
+        </div>
+        <div class="slide-content">
+          <p class="slide-eyebrow">Temporada 2025</p>
+          <h1 class="slide-title">Snow<br/><em>Clothing</em></h1>
+          <p class="slide-sub">Performance en la montaña.<br/>Estilo en la ciudad.</p>
+          <a class="slide-cta" href="#catalogo">
+            <span>Explorar colección</span>
+            <span class="cta-ico">→</span>
+          </a>
+        </div>
+        <div class="slide-num">01</div>
+      </div>
+
+      <!-- Slide 2 — Hoodies -->
+      <div class="hero-slide" data-slide="1">
+        <div class="slide-bg slide-bg--2">
+          <!-- <img src="assets/hero-hoodies.jpg" alt="Hoodies" /> -->
+        </div>
+        <div class="slide-content">
+          <p class="slide-eyebrow">Colección principal</p>
+          <h1 class="slide-title">Hoodies<br/><em>&amp; Fleece</em></h1>
+          <p class="slide-sub">Construidas para durar.<br/>Diseñadas para destacar.</p>
+          <a class="slide-cta" href="#catalogo">
+            <span>Ver hoodies</span>
+            <span class="cta-ico">→</span>
+          </a>
+        </div>
+        <div class="slide-num">02</div>
+      </div>
+
+      <!-- Slide 3 — Tees & Pants -->
+      <div class="hero-slide" data-slide="2">
+        <div class="slide-bg slide-bg--3">
+          <!-- <img src="assets/hero-tees.jpg" alt="Tees & Pants" /> -->
+        </div>
+        <div class="slide-content">
+          <p class="slide-eyebrow">Básicos premium</p>
+          <h1 class="slide-title">Tees<br/><em>&amp; Pants</em></h1>
+          <p class="slide-sub">El uniforme de todos<br/>los días.</p>
+          <a class="slide-cta" href="#catalogo">
+            <span>Ver todos</span>
+            <span class="cta-ico">→</span>
+          </a>
+        </div>
+        <div class="slide-num">03</div>
+      </div>
+
+    </div><!-- /hero-track -->
+
+    <!-- Controls -->
+    <div class="hero-controls">
+      <button class="hero-btn" id="hero-prev" aria-label="Slide anterior">←</button>
+      <div class="hero-dots" id="hero-dots">
+        <button class="dot active" data-dot="0" aria-label="Slide 1"></button>
+        <button class="dot"        data-dot="1" aria-label="Slide 2"></button>
+        <button class="dot"        data-dot="2" aria-label="Slide 3"></button>
+      </div>
+      <button class="hero-btn" id="hero-next" aria-label="Slide siguiente">→</button>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="hero-progress">
+      <div class="hero-progress-bar" id="hero-progress-bar"></div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       TICKER
+  ════════════════════════════════════════════════ -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Snow Clothing</span><span>✦</span>
+      <span>Hoodies</span><span>✦</span>
+      <span>Tees</span><span>✦</span>
+      <span>Pants</span><span>✦</span>
+      <span>MRD American</span><span>✦</span>
+      <span>Streetwear</span><span>✦</span>
+      <span>Hecho en Argentina</span><span>✦</span>
+      <!-- duplicado para loop continuo -->
+      <span>Snow Clothing</span><span>✦</span>
+      <span>Hoodies</span><span>✦</span>
+      <span>Tees</span><span>✦</span>
+      <span>Pants</span><span>✦</span>
+      <span>MRD American</span><span>✦</span>
+      <span>Streetwear</span><span>✦</span>
+      <span>Hecho en Argentina</span><span>✦</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       FEATURED / DROPS (Bento Grid)
+  ════════════════════════════════════════════════ -->
+  <section id="drops" class="section-featured">
+    <div class="section-header" data-reveal>
+      <div>
+        <p class="section-label">— 01</p>
+        <h2 class="section-title">Últimos<br/>Drops</h2>
+      </div>
+      <a class="section-link" href="#catalogo">
+        Ver todos <span>↗</span>
+      </a>
+    </div>
+    <div id="bento-grid" class="bento-grid"></div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       CATEGORY STRIPS — renderizados por JS
+  ════════════════════════════════════════════════ -->
+  <div id="category-strips"></div>
+
+  <!-- ═══════════════════════════════════════════════
+       CATÁLOGO COMPLETO
+  ════════════════════════════════════════════════ -->
+  <section id="catalogo" class="section-catalog">
+    <div class="section-header" data-reveal>
+      <div>
+        <p class="section-label">— 02</p>
+        <h2 class="section-title" id="catalog-title">Colección<br/>Completa</h2>
+      </div>
+      <span class="section-count" id="total-count"></span>
+    </div>
+
+    <div class="catalog-filters" data-reveal>
+      <div class="search-wrap">
+        <input id="search-input" type="text" placeholder="Buscar productos..." autocomplete="off" />
+        <button id="search-btn" aria-label="Buscar">&#x2315;</button>
+      </div>
+      <div id="cat-tabs" class="cat-tabs" role="group" aria-label="Filtrar por categoría"></div>
+    </div>
+
+    <div id="products-grid" class="product-grid"></div>
+
+    <div id="load-more-wrap" class="load-more-wrap">
+      <button id="load-more" class="btn-load-more">
+        <span>Cargar más</span>
+        <span class="btn-icon">↓</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       ABOUT
+  ════════════════════════════════════════════════ -->
+  <section id="nosotros" class="section-about" data-reveal>
+    <div class="about-inner">
+      <div class="about-img-col">
+        <div class="about-img-frame">
+          <div class="about-img-placeholder">
+            <span>MRD</span>
+          </div>
+          <!-- Reemplazá con: <img src="assets/about.jpg" alt="MRD American" /> -->
+        </div>
+      </div>
+      <div class="about-text-col">
+        <p class="section-label">— Nuestra historia</p>
+        <h2 class="about-title">Nació en la<br/>montaña, vive<br/>en la calle</h2>
+        <p class="about-body">
+          MRD American fusiona la cultura del snow con la estética del streetwear americano.
+          Cada prenda está pensada para rendir en la nieve y destacar en la ciudad.
+          Hecho en Argentina, para argentinos.
+        </p>
+        <a class="btn-primary"
+           href="https://www.tiendanube.com/tienda/7637571"
+           target="_blank" rel="noopener">
+          <span>Ir a la tienda</span>
+          <span class="btn-arrow-wrap"><span>↗</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">MRD<span>.</span>AMERICAN</div>
+        <p class="footer-tagline">Snow · Streetwear · Argentina</p>
+        <a class="btn-primary btn-sm"
+           href="https://www.tiendanube.com/tienda/7637571"
+           target="_blank" rel="noopener">
+          <span>Tienda oficial</span>
+          <span class="btn-arrow-wrap"><span>↗</span></span>
+        </a>
+      </div>
+
+      <div class="footer-nav">
+        <div class="footer-col">
+          <h4>Categorías</h4>
+          <ul>
+            <li><a href="#catalogo">Snow Clothing</a></li>
+            <li><a href="#catalogo">Hoodies</a></li>
+            <li><a href="#catalogo">Tees</a></li>
+            <li><a href="#catalogo">Pants</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Tienda</h4>
+          <ul>
+            <li><a href="https://www.tiendanube.com/tienda/7637571" target="_blank" rel="noopener">Comprar</a></li>
+            <li><a href="https://www.tiendanube.com/tienda/7637571" target="_blank" rel="noopener">Mi cuenta</a></li>
+            <li><a href="https://www.tiendanube.com/tienda/7637571" target="_blank" rel="noopener">Envíos</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Info</h4>
+          <ul>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#drops">Drops</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2025 MRD American — Todos los derechos reservados</p>
+      <p class="footer-powered">Potenciado por <a href="https://tiendanube.com" target="_blank" rel="noopener">Tiendanube</a></p>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
